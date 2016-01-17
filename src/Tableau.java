@@ -27,7 +27,7 @@ public class Tableau{
 		System.out.println("entrez une ligne et une colonne pour jouer");
 		LIG=question.nextInt(); COL=question.nextInt();}
 		finalTour = afficherTableau(LIG, COL, joueur, affichage); /*on et à jour le tableau pour afficher le jeu*/
-		return finalTour; /*/ et on finit le tour*/
+		return finalTour; /* et on finit le tour*/
 	}
 	
 	public static boolean afficherTableau(int LIG, int COL, int joueur, String[][] affichage){ /*affichage du tableau*/
@@ -56,10 +56,10 @@ public class Tableau{
 			}
 		nbrDePoints=pointsDuJoueur1+pointsDuJoueur2;
 		}
-		while(true) return rejouer;	//si true, alors on rejoue.
+		while(true) return rejouer;	/*true=rejoue.*/
 	}
 	
-	public static boolean afficherTraits(int LIG, int COL, int joueur, String[][] affichage) { 	// verif si on marque un point
+	public static boolean afficherTraits(int LIG, int COL, int joueur, String[][] affichage) { /*verif si on marque un point*/
 		rejouer=false;
 		if (taille<5){
 			if (COL==1){	
@@ -89,7 +89,7 @@ public class Tableau{
 				if (affichage[LIG][COL-2]=="| " && affichage[LIG+1][COL-1]=="———" && affichage[LIG][COL]=="| "  && affichage[LIG-1][COL-1]!=" + "){
 					affichage[LIG][COL-1]=Integer.toString(joueur)+" ";
 					System.out.println("Bravo joueur "+joueur+" vous gagnez un point!");
-					//	System.out.println("Vous pouvez rejouerr!");
+
 					rejouer=true;
 					if (joueur==1){
 						pointsDuJoueur1++;
@@ -104,7 +104,7 @@ public class Tableau{
 				if (affichage[LIG-2][COL-2]=="| " && affichage[LIG-2][COL]=="| " && affichage[LIG-3][COL-1]=="———" && affichage[LIG-1][COL-1]!=" + "){
 					affichage[LIG-2][COL-1]=Integer.toString(joueur)+" ";
 					System.out.println("Bravo joueur "+joueur+" vous gagnez un point!");
-					//	System.out.println("Vous pouvez rejouerr!");
+
 					rejouer=true;
 					if (joueur==1){
 						pointsDuJoueur1++;
@@ -115,9 +115,9 @@ public class Tableau{
 				}
 			}
 		
-			if (LIG!=1 && COL!=1 && LIG!=affichage.length && COL!=affichage.length){ //evite les collisions avec les conditions aux bords
+			if (LIG!=1 && COL!=1 && LIG!=affichage.length && COL!=affichage.length){
 				
-				if (LIG%2==0 && COL%2!=0){ // si barre verticale tracée
+				if (LIG%2==0 && COL%2!=0){
 					if ((affichage[LIG-2][COL-2]=="———" && affichage[LIG-1][COL-3]=="| " && affichage[LIG][COL-2]=="———"  && affichage[LIG-1][COL-1]!="+ ") || (affichage[LIG-2][COL]=="———" && affichage[LIG-1][COL+1]=="| " && affichage[LIG][COL]=="———"  && affichage[LIG-1][COL-1]!="+ ")){ 
 						if (affichage[LIG-2][COL-2]=="———" && affichage[LIG-1][COL-3]=="| " && affichage[LIG][COL-2]=="———"  && affichage[LIG-1][COL-1]!="+ "){
 							affichage[LIG-1][COL-2]=Integer.toString(joueur)+" ";
@@ -127,7 +127,7 @@ public class Tableau{
 						}
 						if ((affichage[LIG-2][COL-2]=="———" && affichage[LIG-1][COL-3]=="| " && affichage[LIG][COL-2]=="———"  && affichage[LIG-1][COL-1]!="+ ") && (affichage[LIG-2][COL]=="———" && affichage[LIG-1][COL+1]=="| " && affichage[LIG][COL]=="———"  && affichage[LIG-1][COL-1]!="+ ")){
 							System.out.println("Bravo joueur "+joueur+ ", vous gagnez deux points!");
-						//	rejouer=true;
+						
 							if (joueur==1){
 								pointsDuJoueur1=pointsDuJoueur1+2;
 							}
@@ -136,7 +136,7 @@ public class Tableau{
 							}
 						}else{
 							System.out.println("Bravo joueur "+joueur+" vous gagnez un point!");
-						//	rejouer=true;
+						
 							if (joueur==1){
 								pointsDuJoueur1++;
 							}
@@ -149,7 +149,7 @@ public class Tableau{
 					}	
 				}
 			
-				if (LIG%2!=0 && COL%2==0){ //barre horizontale tracée
+				if (LIG%2!=0 && COL%2==0){ 
 					if ((affichage[LIG-2][COL-2]=="| " && affichage[LIG-3][COL-1]=="———" && affichage[LIG-2][COL]=="| " && affichage[LIG-1][COL-1]!=" + ") || ((affichage[LIG][COL-2]=="| " && affichage[LIG][COL]=="| " && affichage[LIG+1][COL-1]=="———" && affichage[LIG-1][COL-1]!=" + "))){ 
 						if (affichage[LIG-2][COL-2]=="| " && affichage[LIG-3][COL-1]=="———" && affichage[LIG-2][COL]=="| " && affichage[LIG-1][COL-1]!=" + "){
 							affichage[LIG-2][COL-1]=Integer.toString(joueur)+" ";
@@ -169,7 +169,7 @@ public class Tableau{
 							}
 						}else{
 							System.out.println("Bravo joueur "+joueur+" vous gagnez un point!");
-						//	rejouer=true;
+		
 							if (joueur==1){
 								pointsDuJoueur1++;
 							}
@@ -184,7 +184,7 @@ public class Tableau{
 			}
 		}
 		
-		if (taille>=5){ // NECESSAIRE POUR LES CAS OU LE Tableau A PLUS DE 10 COLS
+		if (taille>=5){ 
 			if (COL==1){	
 				if (affichage[LIG-1][COL+1]=="|  " && affichage[LIG][COL]=="—————" && affichage[LIG-2][COL]=="—————" && affichage[LIG-1][COL-1]!="+  "){
 					affichage[LIG-1][COL]=Integer.toString(joueur)+"  ";
@@ -195,7 +195,7 @@ public class Tableau{
 					if (joueur==2){
 						pointsDuJoueur2++;
 					}
-					//	System.out.println("Vous pouvez rejouerr!");
+				
 					rejouer=true;
 				}
 			}
@@ -218,7 +218,7 @@ public class Tableau{
 				if (affichage[LIG][COL-2]=="|  " && affichage[LIG+1][COL-1]=="—————" && affichage[LIG][COL]=="|  " && affichage[LIG-1][COL-1]!="  +  "){
 					affichage[LIG][COL-1]=Integer.toString(joueur)+"  ";
 					System.out.println("Bravo joueur "+joueur+" vous gagnez un point!");
-					//	System.out.println("Vous pouvez rejouerr!");
+				
 					rejouer=true;
 					if (joueur==1){
 						pointsDuJoueur1++;
@@ -233,7 +233,7 @@ public class Tableau{
 				if (affichage[LIG-2][COL-2]=="|  " && affichage[LIG-2][COL]=="|  " && affichage[LIG-3][COL-1]=="—————" && affichage[LIG-1][COL-1]!="  +  "){
 					affichage[LIG-2][COL-1]=Integer.toString(joueur)+"  ";
 					System.out.println("Bravo joueur "+joueur+" vous gagnez un point!");
-					//	System.out.println("Vous pouvez rejouerr!");
+				
 					rejouer=true;
 					if (joueur==1){
 						pointsDuJoueur1++;
@@ -266,7 +266,7 @@ public class Tableau{
 							}
 						}else{
 							System.out.println("Bravo joueur "+joueur+" vous gagnez un point!");
-						//	rejouer=true;
+				
 							if (joueur==1){
 								pointsDuJoueur1++;
 							}
@@ -279,7 +279,7 @@ public class Tableau{
 					}	
 				}
 			
-				if (LIG%2!=0 && COL%2==0){ //barre horizontale tracée
+				if (LIG%2!=0 && COL%2==0){
 					if ((affichage[LIG-2][COL-2]=="|  " && affichage[LIG-3][COL-1]=="—————" && affichage[LIG-2][COL]=="|  " && affichage[LIG-1][COL-1]!="  +  ") || ((affichage[LIG][COL-2]=="|  " && affichage[LIG][COL]=="|  " && affichage[LIG+1][COL-1]=="—————" && affichage[LIG-1][COL-1]!="  +  "))){ 
 						if (affichage[LIG-2][COL-2]=="|  " && affichage[LIG-3][COL-1]=="—————" && affichage[LIG-2][COL]=="|  " && affichage[LIG-1][COL-1]!="  +  "){
 							affichage[LIG-2][COL-1]=Integer.toString(joueur)+"  ";
@@ -298,7 +298,7 @@ public class Tableau{
 							}
 						}else{
 							System.out.println("Bravo joueur "+joueur+" vous gagnez un point!");
-						//	rejouer=true;
+						
 							if (joueur==1){
 								pointsDuJoueur1++;
 							}
@@ -308,50 +308,47 @@ public class Tableau{
 							}
 						}
 					rejouer=true;
-					}
-				}
-			}
-		}
-		return rejouer; 
+					}}}}
+					return rejouer; 
 	}
 	
-	public boolean Verifier(int LIG, int COL, String[][] affichage) {// Vérifie que les LIGs et COLs demandées sont bonnes
+	public boolean Verifier(int LIG, int COL, String[][] affichage) {
 
 		if (LIG>affichage.length || COL>affichage.length || LIG<1 || COL<1){
-			System.out.println("Les valeurs entrées ne sont pas dans le tableau! Veuillez rejouerr.");
+			System.out.println("Les valeurs entrées ne sont pas dans le tableau! Veuillez rejouer.");
 			return false;
 		}
 		
 		if (taille<5){			
 			if (affichage[LIG-1][COL-1]=="| " || affichage[LIG-1][COL-1]=="———"){
-				System.out.println("Cette case n'est pas disponible! Elle a déjÃ  été jouée! rejouerz.");
+				System.out.println("Cette case n'est pas disponible! Elle a déjà  été jouée! rejouez.");
 				return false;
 			}
 		}
 		if (taille>=5){			
 			if (affichage[LIG-1][COL-1]=="|  " || affichage[LIG-1][COL-1]=="—————"){
-				System.out.println("Cette case n'est pas disponible! Elle a déjÃ  été jouée! rejouerz.");
+				System.out.println("Cette case n'est pas disponible! Elle a déjà  été jouée! rejouez.");
 				return false;
 			}
 		}
 		
 		if (affichage[LIG-1][COL-1]=="O"){
-			System.out.println("Cette case n'est pas disponible! C'est un point! rejouerz.");
+			System.out.println("Cette case n'est pas disponible! C'est un point! rejouez.");
 			return false;
 		}
 		if (LIG%2==0 && COL%2==0){
-			System.out.println("Cette case n'est pas disponible! Elle est déstinée Ã  la lettre du gagnant de la case! rejouerz.");
+			System.out.println("Cette case n'est pas disponible! Elle est déstinée à la lettre du gagnant de la case! rejouez.");
 			return false;
 		}	
-		else{		//if infos rentrées sont disponibles, return true. Else false. 
+		else{	
 			return true;
 		}
 	}
 	
 	
 	
-		//PARTIE JOUEUR VS ORDI.
-	public boolean IA(int difficulté, String[][] affichage) { // Fais marcher l'IA.
+/*IA*/
+	public boolean IA(int difficulté, String[][] affichage) { 
 		boolean finalTour=true;
 		int tableau[]={0,0};
 		int LIG=0, COL=0;
@@ -369,15 +366,15 @@ public class Tableau{
 		return finalTour;
 	}
 
-	public boolean afficherTableauOrdi(int LIG, int COL, int joueur, String[][] visuel){ //Met à jour le Tableau selon les valeurs choisies par l'IA
+	public boolean afficherTableauOrdi(int LIG, int COL, int joueur, String[][] visuel){
 		if (taille<5){		
-			rejouer = afficherTraitsOrdi(LIG, COL, joueur, visuel);//doit se situer ici et non pas après sinon l'afficherTableau de la case ne détectera jamais le point.
+			rejouer = afficherTraitsOrdi(LIG, COL, joueur, visuel);
 			if ((LIG)%2==0 && (COL)%2!=0){
 				if (visuel[LIG-1][COL-1]!=". "){
-					visuel[LIG-1][COL-1]="| ";//NE PAS ENLEVER LESPACE SINON CA FOUT LA MERDE ;_;
+					visuel[LIG-1][COL-1]="| ";
 				}else{
 					System.out.println("Et une case grisée de moins!");
-					visuel[LIG-1][COL-1]="  ";//NE PAS ENLEVER LESPACE SINON CA FOUT LA MERDE ;_;
+					visuel[LIG-1][COL-1]="  ";
 				}
 			}
 			if ((LIG)%2!=0 && (COL)%2==0){
@@ -385,21 +382,20 @@ public class Tableau{
 					visuel[LIG-1][COL-1]="———";
 					}else{
 						System.out.println("Et une case grisée de moins!");
-						visuel[LIG-1][COL-1]="   ";//NE PAS ENLEVER LESPACE SINON CA FOUT LA MERDE ;_;
+						visuel[LIG-1][COL-1]="   ";
 				}	
 			} 
-			// finalTourr de vérifier si la case demandée compléte un carré, auquel cas, le joueur peut rejouerr
 		nbrDePoints=pointsDuJoueur1+pointsDuJoueur2;
 		}
 		
-		if (taille>=5){ // NECESSAIRE POUR LES CAS OU LE Tableau A PLUS DE 10 COLS
-			rejouer = afficherTraitsOrdi(LIG, COL, joueur, visuel); //doit se situer ici et non pas après sinon l'afficherTableau de la case ne détectera jamais le point.
+		if (taille>=5){ 
+			rejouer = afficherTraitsOrdi(LIG, COL, joueur, visuel);
 			if ((LIG)%2==0 && (COL)%2!=0){
 				if (visuel[LIG-1][COL-1]!=".  "){
-					visuel[LIG-1][COL-1]="|  ";//NE PAS ENLEVER LESPACE SINON CA FOUT LA MERDE ;_;
+					visuel[LIG-1][COL-1]="|  ";
 				}else{
 					System.out.println("Et une case grisée de moins!");
-					visuel[LIG-1][COL-1]="   ";//NE PAS ENLEVER LESPACE SINON CA FOUT LA MERDE ;_;
+					visuel[LIG-1][COL-1]="   ";
 				}
 			}
 			if ((LIG)%2!=0 && (COL)%2==0){
@@ -407,7 +403,7 @@ public class Tableau{
 					visuel[LIG-1][COL-1]="—————";
 					}else{
 						System.out.println("Et une case grisée de moins!");
-						visuel[LIG-1][COL-1]="     ";//NE PAS ENLEVER LESPACE SINON CA FOUT LA MERDE ;_;
+						visuel[LIG-1][COL-1]="     ";
 				}	
 			}
 		nbrDePoints=pointsDuJoueur1+pointsDuJoueur2;
@@ -415,8 +411,8 @@ public class Tableau{
 		return rejouer;	
 	}
 
-	public boolean afficherTraitsOrdi(int ligne, int colonne, int joueur, String[][] visuel) { 	// Vérifie si la position rentrée par le joueur complète une case ou non
-		rejouer=false; // false par défaut, car le joueur ne peut pas rejouer tant qu'il ne coche pas une case.
+	public boolean afficherTraitsOrdi(int ligne, int colonne, int joueur, String[][] visuel) { 	
+		rejouer=false; 
 		if (taille<5){
 			if (colonne==1){	
 				if (visuel[ligne-1][colonne+1]=="| " && visuel[ligne][colonne]=="———" && visuel[ligne-2][colonne]=="———" && visuel[ligne-1][colonne-1]!=". "){
@@ -428,8 +424,8 @@ public class Tableau{
 					if (joueur==2){
 						pointsDuJoueur2++;
 					}
-					//	System.out.println("Vous pouvez rejouer!");
-					rejouer=true; // si la case demandée coche une case, return true et permet au joueur de rejouer.
+					
+					rejouer=true; 
 				}
 			}
 		
@@ -451,7 +447,7 @@ public class Tableau{
 				if (visuel[ligne][colonne-2]=="| " && visuel[ligne+1][colonne-1]=="———" && visuel[ligne][colonne]=="| "  && visuel[ligne-1][colonne-1]!=" . "){
 					visuel[ligne][colonne-1]=Integer.toString(joueur)+" ";
 					System.out.println("Bravo joueur "+joueur+" vous gagnez un point!");
-					//	System.out.println("Vous pouvez rejouer!");
+		
 					rejouer=true;
 					if (joueur==1){
 						pointsDuJoueur1++;
@@ -466,7 +462,7 @@ public class Tableau{
 				if (visuel[ligne-2][colonne-2]=="| " && visuel[ligne-2][colonne]=="| " && visuel[ligne-3][colonne-1]=="———" && visuel[ligne-1][colonne-1]!=" . "){
 					visuel[ligne-2][colonne-1]=Integer.toString(joueur)+" ";
 					System.out.println("Bravo joueur "+joueur+" vous gagnez un point!");
-					//	System.out.println("Vous pouvez rejouer!");
+		
 					rejouer=true;
 					if (joueur==1){
 						pointsDuJoueur1++;
@@ -489,7 +485,7 @@ public class Tableau{
 						}
 						if ((visuel[ligne-2][colonne-2]=="———" && visuel[ligne-1][colonne-3]=="| " && visuel[ligne][colonne-2]=="———"  && visuel[ligne-1][colonne-1]!=". ") && (visuel[ligne-2][colonne]=="———" && visuel[ligne-1][colonne+1]=="| " && visuel[ligne][colonne]=="———"  && visuel[ligne-1][colonne-1]!=". ")){
 							System.out.println("Bravo joueur "+joueur+ ", vous gagnez deux points!");
-						//	rejoue=true;
+		
 							if (joueur==1){
 								pointsDuJoueur1=pointsDuJoueur1+2;
 							}
@@ -498,7 +494,7 @@ public class Tableau{
 							}
 						}else{
 							System.out.println("Bravo joueur "+joueur+" vous gagnez un point!");
-						//	rejoue=true;
+		
 							if (joueur==1){
 								pointsDuJoueur1++;
 							}
@@ -511,7 +507,7 @@ public class Tableau{
 					}	
 				}
 			
-				if (ligne%2!=0 && colonne%2==0){ //barre horizontale tracée
+				if (ligne%2!=0 && colonne%2==0){
 					if ((visuel[ligne-2][colonne-2]=="| " && visuel[ligne-3][colonne-1]=="———" && visuel[ligne-2][colonne]=="| " && visuel[ligne-1][colonne-1]!=" . ") || ((visuel[ligne][colonne-2]=="| " && visuel[ligne][colonne]=="| " && visuel[ligne+1][colonne-1]=="———" && visuel[ligne-1][colonne-1]!=" . "))){ 
 						if (visuel[ligne-2][colonne-2]=="| " && visuel[ligne-3][colonne-1]=="———" && visuel[ligne-2][colonne]=="| " && visuel[ligne-1][colonne-1]!=" . "){
 							visuel[ligne-2][colonne-1]=Integer.toString(joueur)+" ";
@@ -531,7 +527,7 @@ public class Tableau{
 							}
 						}else{
 							System.out.println("Bravo joueur "+joueur+" vous gagnez un point!");
-						//	rejoue=true;
+						
 							if (joueur==1){
 								pointsDuJoueur1++;
 							}
@@ -546,7 +542,7 @@ public class Tableau{
 			}
 		}
 		
-		if (taille>=5){ // NECESSAIRE POUR LES CAS OU LE PLATEAU A PLUS DE 10 COLONNES
+		if (taille>=5){ 
 			if (colonne==1){	
 				if (visuel[ligne-1][colonne+1]=="|  " && visuel[ligne][colonne]=="—————" && visuel[ligne-2][colonne]=="—————" && visuel[ligne-1][colonne-1]!=".  "){
 					visuel[ligne-1][colonne]=Integer.toString(joueur)+"  ";
@@ -557,7 +553,7 @@ public class Tableau{
 					if (joueur==2){
 						pointsDuJoueur2++;
 					}
-					//	System.out.println("Vous pouvez rejouer!");
+					
 					rejouer=true;
 				}
 			}
@@ -580,7 +576,7 @@ public class Tableau{
 				if (visuel[ligne][colonne-2]=="|  " && visuel[ligne+1][colonne-1]=="—————" && visuel[ligne][colonne]=="|  " && visuel[ligne-1][colonne-1]!="  .  "){
 					visuel[ligne][colonne-1]=Integer.toString(joueur)+"  ";
 					System.out.println("Bravo joueur "+joueur+" vous gagnez un point!");
-					//	System.out.println("Vous pouvez rejouer!");
+					
 					rejouer=true;
 					if (joueur==1){
 						pointsDuJoueur1++;
@@ -595,7 +591,7 @@ public class Tableau{
 				if (visuel[ligne-2][colonne-2]=="|  " && visuel[ligne-2][colonne]=="|  " && visuel[ligne-3][colonne-1]=="—————" && visuel[ligne-1][colonne-1]!="  .  "){
 					visuel[ligne-2][colonne-1]=Integer.toString(joueur)+"  ";
 					System.out.println("Bravo joueur "+joueur+" vous gagnez un point!");
-					//	System.out.println("Vous pouvez rejouer!");
+					
 					rejouer=true;
 					if (joueur==1){
 						pointsDuJoueur1++;
@@ -606,9 +602,9 @@ public class Tableau{
 				}
 			}
 		
-			if (ligne!=1 && colonne!=1 && ligne!=visuel.length && colonne!=visuel.length){ //evite les collisions avec les conditions aux bords
+			if (ligne!=1 && colonne!=1 && ligne!=visuel.length && colonne!=visuel.length){
 				
-				if (ligne%2==0 && colonne%2!=0){ // si barre verticale tracée
+				if (ligne%2==0 && colonne%2!=0){
 					if ((visuel[ligne-2][colonne-2]=="—————" && visuel[ligne-1][colonne-3]=="|  " && visuel[ligne][colonne-2]=="—————" && visuel[ligne-1][colonne-1]!=".  ") || (visuel[ligne-2][colonne]=="—————" && visuel[ligne-1][colonne+1]=="|  " && visuel[ligne][colonne]=="—————" && visuel[ligne-1][colonne-1]!=".  ")){ // A MODIFIER
 						if (visuel[ligne-2][colonne-2]=="—————" && visuel[ligne-1][colonne-3]=="|  " && visuel[ligne][colonne-2]=="—————" && visuel[ligne-1][colonne-1]!=".  "){
 							visuel[ligne-1][colonne-2]=Integer.toString(joueur)+"  ";
@@ -641,7 +637,7 @@ public class Tableau{
 					}	
 				}
 			
-				if (ligne%2!=0 && colonne%2==0){ //barre horizontale tracée
+				if (ligne%2!=0 && colonne%2==0){ 
 					if ((visuel[ligne-2][colonne-2]=="|  " && visuel[ligne-3][colonne-1]=="—————" && visuel[ligne-2][colonne]=="|  " && visuel[ligne-1][colonne-1]!="  .  ") || ((visuel[ligne][colonne-2]=="|  " && visuel[ligne][colonne]=="|  " && visuel[ligne+1][colonne-1]=="—————" && visuel[ligne-1][colonne-1]!="  .  "))){ 
 						if (visuel[ligne-2][colonne-2]=="|  " && visuel[ligne-3][colonne-1]=="—————" && visuel[ligne-2][colonne]=="|  " && visuel[ligne-1][colonne-1]!="  .  "){
 							visuel[ligne-2][colonne-1]=Integer.toString(joueur)+"  ";
@@ -660,7 +656,7 @@ public class Tableau{
 							}
 						}else{
 							System.out.println("Bravo joueur "+joueur+" vous gagnez un point!");
-						//	rejoue=true;
+						
 							if (joueur==1){
 								pointsDuJoueur1++;
 							}
@@ -687,18 +683,16 @@ public class Tableau{
 		else return true;}
 	
 	
-	
-	// CREATION ET AFFICHAGE DU Tableau DE JEU
-		//PARTIE CONSOLE
+	/*console*/
 	public void Afficher(String[][] affichage) {
 		if (taille<5){
 			System.out.print(" ");
 		}
 		if (affichage.length<10){
 			for (int i=0;i<affichage.length;i++){
-			System.out.print(" "+(i+1)); //pas de décallage tant que taille inférieure Ã  5.. faudra améliorer en augmentant l'espace selon un log
+			System.out.print(" "+(i+1)); 
 			}
-			for (int i=0;i<affichage.length;i++){ //sur la console.
+			for (int i=0;i<affichage.length;i++){
 				System.out.print("\n");
 					System.out.print(i+1+" ");
 				for (int j=0;j<affichage.length;j++){
@@ -709,15 +703,15 @@ public class Tableau{
 			
 		}else{
 			System.out.print("     ");
-			for (int i=0;i<affichage.length;i++){ //AFFICHE LA LIG AU DESSUS DU TABLEAU.
-				if (i>7){ //me finalTour pas pk 7 mais ca marche XD
+			for (int i=0;i<affichage.length;i++){
+				if (i>7){ 
 					System.out.print((i+1)+" ");
 				}else{
-				System.out.print((i+1)+"  ");//pas de décallage tant que taille inférieure Ã  5.. faudra améliorer en augmentant l'espace selon un log
+				System.out.print((i+1)+"  ");
 				}
 			}
 			
-			for (int i=0;i<affichage.length;i++){ //AFFICHE LES CHIFFRES SUR LES COTES DU TABLEAU.
+			for (int i=0;i<affichage.length;i++){
 				System.out.println("");
 				if (i>10){
 					if (i%2==0){
@@ -728,7 +722,7 @@ public class Tableau{
 				}else{
 					System.out.print(i+1+"   ");
 				}
-				if (i<9){ //finalTour pas pk non plus.. mÃªme histoire qu'avant ahha
+				if (i<9){ 
 					System.out.print(" ");
 				}
 			for (int j=0;j<affichage.length;j++){
@@ -741,9 +735,9 @@ public class Tableau{
 
 	public void Initialisation(String[][] affichage){
 		System.out.println("\n\n");
-		if (affichage.length<10){ //traite le cas d'un petit jeu
-			for (int i=0;i<affichage.length;i++){ //création du Tableau avec des "O"
-				if (i%2==0){ // SI LIG PAIRE
+		if (affichage.length<10){ 
+			for (int i=0;i<affichage.length;i++){
+				if (i%2==0){
 					for (int j=0;j<affichage.length;j++){
 						if(j%2==0){
 							affichage[i][j]="O";
@@ -753,12 +747,12 @@ public class Tableau{
 					}
 				}else{
 					for (int j=0;j<affichage.length;j++){
-						affichage[i][j]="  "; //Espace nÂ° joueur gagnant
+						affichage[i][j]="  ";
 					}
 				}
 			}
-		}else{ // si taille>10, pour gérer les décallages dans l'affichage.
-			for (int i=0;i<affichage.length;i++){ //création du Tableau avec des "."
+		}else{
+			for (int i=0;i<affichage.length;i++){
 				if (i%2==0){
 					for (int j=0;j<affichage.length;j++){
 						if(j%2==0){
@@ -777,8 +771,9 @@ public class Tableau{
 		}
 	}
 	
-		//PARTIE GRAPHIQUE
-	public void AfficherGraphique(int joueur, String[][] fenetre) { // Necessite d'import le joueur sinon bug étrange.
+/*GRAPHIQUE*/
+//là on va faire tous les tests puour la partie graphique pour pouvoir detecter la souris et là ou on clique
+	public void AfficherGraphique(int joueur, String[][] fenetre) {
 		StdDraw.clear();
 		int a=0;
 		if (nbrDePoints!=(((fenetre.length-1)/2)*((fenetre.length-1)/2))){
@@ -864,14 +859,14 @@ public class Tableau{
 							StdDraw.line(j, i-1, j, i+1);	
 						}}
 					
-					if (i%2!=0 && j%2!=0){ // moins de calculs
+					if (i%2!=0 && j%2!=0){ 
 						if (fenetre[i][j]!="  "){ 
 							a=Integer.parseInt(fenetre[i][j].substring(0, 1)); 
 
 							StdDraw.text(j, i, Integer.toString(a));
 						}}}}
 			
-			for (int i=0;i<fenetre.length;i++){ //RONDS
+			for (int i=0;i<fenetre.length;i++){ /*RONDS*/
 				for (int j=0;j<fenetre.length;j++){
 					if (fenetre[i][j]=="O"){
 						StdDraw.setPenRadius(0.03);
@@ -879,7 +874,7 @@ public class Tableau{
 					}}}}
 		
 		if (taille>=5){
-			for (int i=0;i<fenetre.length;i++){ //PLUS
+			for (int i=0;i<fenetre.length;i++){ /*PLUS*/
 				for (int j=0;j<fenetre.length;j++){
 					if (fenetre[i][j]=="—————"){
 						StdDraw.setPenRadius(0.01);
@@ -924,7 +919,7 @@ public class Tableau{
 							a=Integer.parseInt(fenetre[i][j].substring(0, 1));
 							StdDraw.text(j, i, Integer.toString(a));}}}}
 			
-			for (int i=0;i<fenetre.length;i++){ //création du Tableau : des "O"
+			for (int i=0;i<fenetre.length;i++){
 				for (int j=0;j<fenetre.length;j++){
 					if (fenetre[i][j]=="O"){
 						if (taille<=8){
@@ -943,14 +938,14 @@ public class Tableau{
 		StdDraw.clear();
 	}
 		
-	public boolean Hitbox(int joueur, String[][] fenetre){ //autre fonction tour()	
+	public boolean Hitbox(int joueur, String[][] fenetre){
 		double largeur=1;
 		boolean finalTour=true;
 		if (taille<5){
-			for (int i=0;i<fenetre.length;i++){ //création du Tableau : des "O"
+			for (int i=0;i<fenetre.length;i++){
 				for (int j=0;j<fenetre.length;j++){
-					if (fenetre[i][j]=="———"  && StdDraw.mousePressed()){//evite les reclick sur les cases déjÃ  utilisées!
-						if(DetectPos(j-1, i-(largeur/2), j+1, i+(largeur/2))){ //utilise l'autre fonction qui n'afficherTableau pas, ce qui évite les erreurs de nbrDePointss et de joueurs.
+					if (fenetre[i][j]=="———"  && StdDraw.mousePressed()){
+						if(DetectPos(j-1, i-(largeur/2), j+1, i+(largeur/2))){
 							rejouer=false;
 						}
 					} 
@@ -960,7 +955,7 @@ public class Tableau{
 						rejouer=true;
 					}
 					
-					if (i%2!=0 && j%2==0){ //evite de confondre les cases verticales : les cases : les nombres.
+					if (i%2!=0 && j%2==0){
 						if (fenetre[i][j]=="| "  && StdDraw.mousePressed()){
 							if(DetectPos(j-(largeur/2), i-1, j+(largeur/2), i+1)){
 								rejouer=false;
@@ -991,10 +986,10 @@ public class Tableau{
 		}
 
 		if (taille>=5){
-			for (int i=0;i<fenetre.length;i++){ //création du Tableau : des "O"
+			for (int i=0;i<fenetre.length;i++){
 				for (int j=0;j<fenetre.length;j++){
-					if (fenetre[i][j]=="—————"  && StdDraw.mousePressed()){//evite les reclick sur les cases déjÃ  utilisées!
-						if(DetectPos(j-1, i-(largeur/2), j+1, i+(largeur/2))){ //utilise l'autre fonction qui n'afficherTableau pas, ce qui évite les erreurs de nbrDePointss et de joueurs.
+					if (fenetre[i][j]=="—————"  && StdDraw.mousePressed()){
+						if(DetectPos(j-1, i-(largeur/2), j+1, i+(largeur/2))){
 							rejouer=false;
 						}} 
 					
@@ -1003,8 +998,8 @@ public class Tableau{
 						rejouer=true;
 					}
 					
-					if (fenetre[i][j]=="|  "  && StdDraw.mousePressed()){//evite les reclick sur les cases déjÃ  utilisées!
-						if(DetectPos(j-(largeur/2), i-1, j+(largeur/2), i+1)){ //utilise l'autre fonction qui n'afficherTableau pas, ce qui évite les erreurs de nbrDePointss et de joueurs.
+					if (fenetre[i][j]=="|  "  && StdDraw.mousePressed()){
+						if(DetectPos(j-(largeur/2), i-1, j+(largeur/2), i+1)){
 							rejouer=false;
 						}} 
 					
@@ -1031,7 +1026,7 @@ public class Tableau{
 		double x=StdDraw.mouseX();
 		double y=StdDraw.mouseY(); 
 		if (x>x0 && x<x1 && y>y0 && y<y1){
-			while(StdDraw.mousePressed()){}	 //evite le fait de laisser appuyer la souris.
+			while(StdDraw.mousePressed()){}
 			afficherTableau(LIG, COL, joueur, fenetre);
 		}
 		return rejouer;
@@ -1048,7 +1043,7 @@ public class Tableau{
 	//CREATION DES POINTILLES
 	public void Pointilles(int pointilles, String[][] fenetre) {
 		if (pointilles>((taille*(taille+1))+(taille*(taille+1)))){
-			System.out.println("Il y a plus de pointillés que des cases disponibles... Tout le Tableau sera donc rempli de points.");
+			System.out.println("que des + puisque le nombre entré est incorrect");
 			if (taille<5){
 				for (int i=0;i<fenetre.length;i++){
 					for (int j=0;j<fenetre.length;j++){
@@ -1057,11 +1052,7 @@ public class Tableau{
 						}
 						if ((i%2==0 && j%2!=0)){
 							fenetre[i][j]=" + ";
-						}
-							
-					}
-				}
-			}
+						}}}}
 			if (taille>=5){
 				for (int i=0;i<fenetre.length;i++){
 					for (int j=0;j<fenetre.length;j++){
@@ -1070,10 +1061,7 @@ public class Tableau{
 						}
 						if ((i%2==0 && j%2!=0)){
 							fenetre[i][j]="  +  ";
-						}			
-					}
-				}
-			}
+						}}}}
 			
 		}else{
 			for (int k=0; k<pointilles;k++){	
@@ -1113,7 +1101,9 @@ public class Tableau{
 			}
 		}
 	}
-	// SETTERS AND GETTERS
+//fin des fonctions
+//début des gets
+//fin du programme
 	public int getnbrDePoints() {
 		return nbrDePoints;
 	}
@@ -1126,3 +1116,4 @@ public class Tableau{
 		return pointsDuJoueur2;
 	}
 }	
+//fin.
