@@ -2,6 +2,7 @@ import java.awt.Font;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.lang.*;
+
 public class Tableau{
 	/*variables*/
 	static Scanner question = new Scanner(System.in);
